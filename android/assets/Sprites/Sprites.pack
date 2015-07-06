@@ -1,0 +1,68 @@
+
+Sprites.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+block
+  rotate: false
+  xy: 1, 15
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Player1
+  rotate: false
+  xy: 19, 15
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Player2
+  rotate: false
+  xy: 37, 15
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+RedLighter1
+  rotate: false
+  xy: 55, 15
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+RedLighter2
+  rotate: false
+  xy: 73, 15
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+PlayerHead1
+  rotate: false
+  xy: 91, 17
+  size: 16, 14
+  orig: 16, 14
+  offset: 0, 0
+  index: -1
+PlayerHead2
+  rotate: false
+  xy: 91, 1
+  size: 16, 14
+  orig: 16, 14
+  offset: 0, 0
+  index: -1
+RedLighterHead1
+  rotate: false
+  xy: 109, 17
+  size: 16, 14
+  orig: 16, 14
+  offset: 0, 0
+  index: -1
+RedLighterHead2
+  rotate: false
+  xy: 109, 1
+  size: 16, 14
+  orig: 16, 14
+  offset: 0, 0
+  index: -1

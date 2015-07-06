@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="80" height="80" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="Map" tilewidth="16" tileheight="16">
+  <image source="../Tiles/Tiles.png" width="160" height="160"/>
+  <tile id="13">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="23">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="24">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="25">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="26">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="33">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="34">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="35">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Background" width="80" height="80">
+  <data encoding="base64" compression="zlib">
+   eJzt0MEJACAQwLBz/6UdQaT4kQS6QNfMrIf97uU7//w78a/xr/Gv8a/xr/Gv8a/xr/Gv8a/xr/Gv8a/xr/Gv8a/xr/Gv8Q8AAAAAAAAAAAAAAAAAAAAAAODOBj2dAhE=
+  </data>
+ </layer>
+ <layer name="Foreground" width="80" height="80">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20Hb6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA1wBkAAAB
+  </data>
+ </layer>
+ <layer name="Objects" width="80" height="80">
+  <data encoding="base64" compression="zlib">
+   eJzt1V0LAUEUBuBJ7V5QuPSRG/z/32iUrTGdZUXamuepN9ZI9u0cUvpe90hfPPY/+Ny5O705X46kS8+d9dV1i8r7rzuK5qt8b52WRD1FvY11dc/q7996Pt7N2JBob+t+WzRl/qbOZ4s9Rvu4ztnkbFPcVXm+Sm3vb7mXw07ucvY5hxT3F52Xe9+SaB/POZec6wfnw/9La17NTL2bY797xBbF8+PI6wAAAAAAAAAAAAAAAAAAAAAAAAAAADBHN5UoBaE=
+  </data>
+ </layer>
+ <layer name="Fog" width="80" height="80">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20Hb6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA1wBkAAAB
+  </data>
+ </layer>
+ <objectgroup name="Spawns" width="80" height="80" opacity="0.8">
+  <object name="Player Spawn" x="152" y="120" width="15" height="20">
+   <properties>
+    <property name="playerspawn" value=""/>
+   </properties>
+  </object>
+  <object name="Enemy Spawn 1" x="180" y="83" width="13" height="11">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="rlstatic" value="3"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Lights" width="80" height="80"/>
+</map>
