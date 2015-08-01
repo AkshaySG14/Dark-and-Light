@@ -9,6 +9,7 @@ import com.inoculates.dal.WorldHandlers.GameScreen;
 
 public class PlayerInput implements InputProcessor {
     GameScreen screen;
+    boolean frozen = false;
 
     public PlayerInput(GameScreen screen) {
         this.screen = screen;
@@ -16,8 +17,13 @@ public class PlayerInput implements InputProcessor {
 
     public boolean touchDown(int x, int y, int pointer, int button) {
         // Turns the player light on/off.
-        if (button == Input.Buttons.LEFT)
+        // If frozen returns to prevent any controller use.
+        if (button == Input.Buttons.LEFT && !frozen)
             screen.player.switchLight();
+        // If at the end game screen check for any according inputs.
+        else if (frozen)
+            screen.checkClick(x, y);
+
         return true;
     }
 
@@ -39,6 +45,8 @@ public class PlayerInput implements InputProcessor {
     }
 
     public boolean mouseMoved(int x, int y) {
+        //if (frozen)
+            screen.checkHover(x, y);
         return true;
     }
 
@@ -48,5 +56,13 @@ public class PlayerInput implements InputProcessor {
 
     public boolean touchUp(int x, int y, int z, int a) {
         return true;
+    }
+
+    public void freeze() {
+        frozen = true;
+    }
+
+    public void unFreeze() {
+        frozen = false;
     }
 }

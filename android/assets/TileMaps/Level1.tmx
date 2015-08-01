@@ -2,6 +2,37 @@
 <map version="1.0" orientation="orthogonal" width="80" height="80" tilewidth="16" tileheight="16">
  <tileset firstgid="1" name="Map" tilewidth="16" tileheight="16">
   <image source="../Tiles/Tiles.png" width="160" height="160"/>
+  <tile id="1">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="block" value=""/>
+    <property name="color" value="green"/>
+    <property name="lholder" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="block" value=""/>
+    <property name="color" value="blue"/>
+    <property name="lholder" value=""/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="block" value=""/>
+    <property name="color" value="yellow"/>
+    <property name="lholder" value=""/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="end" value=""/>
+   </properties>
+  </tile>
   <tile id="13">
    <properties>
     <property name="block" value=""/>
@@ -13,6 +44,11 @@
    </properties>
   </tile>
   <tile id="15">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="16">
    <properties>
     <property name="block" value=""/>
    </properties>
@@ -37,6 +73,16 @@
     <property name="block" value=""/>
    </properties>
   </tile>
+  <tile id="27">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
   <tile id="33">
    <properties>
     <property name="block" value=""/>
@@ -52,6 +98,51 @@
     <property name="block" value=""/>
    </properties>
   </tile>
+  <tile id="38">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="42">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="43">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="44">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="46">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="47">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="48">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="52">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
+  <tile id="56">
+   <properties>
+    <property name="block" value=""/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="Background" width="80" height="80">
   <data encoding="base64" compression="zlib">
@@ -60,31 +151,277 @@
  </layer>
  <layer name="Foreground" width="80" height="80">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20Hb6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA1wBkAAAB
+   eJzt1cEKgzAQRVG7bf//f4tQF4K0pg8ZR8+B2WWRXBIyTcd6DA5r+mX0++75mS2j7e7Y7xf9Mvpl9Mvol9Fvv61/WL+Mfhn9Mvpl9Mvol9Evo19Gv4x+mav3O3Lfo+069zvLdFPdq2u3RXW37g2rm3XvWd2oU6st1d06t5tVt9Pv3j21yuiXqe7XvWF1u+6tq3uctcte1d06t1vol9PvPyPnfA2uv0O/WfX77dy1ulHndrPqTlfpuNBoTPX9ukrHPTQCAAAAAAAAAAAAAOjrDeZpBDc=
   </data>
  </layer>
  <layer name="Objects" width="80" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt1V0LAUEUBuBJ7V5QuPSRG/z/32iUrTGdZUXamuepN9ZI9u0cUvpe90hfPPY/+Ny5O705X46kS8+d9dV1i8r7rzuK5qt8b52WRD1FvY11dc/q7996Pt7N2JBob+t+WzRl/qbOZ4s9Rvu4ztnkbFPcVXm+Sm3vb7mXw07ucvY5hxT3F52Xe9+SaB/POZec6wfnw/9La17NTL2bY797xBbF8+PI6wAAAAAAAAAAAAAAAAAAAAAAAAAAADBHN5UoBaE=
+   eJztmk1PAjEQQCsHEjRB4wkVL2jiQY1y4OD//2PSbCeOZbrDUpF0eS+ZKN1ujc/pt/MQwnVPPDnPdbwOqGvFTWiLx20stnGRPl8asSyUW7FIXw/lvuLdUyH+8rD8TAvlff4+Cj93Hrq/XwzJu1b97ZtfErMUukzastq3eNjGXYplKhuDv0n2+Tb4PqcpLFfayUR9v9rGS4pno24rvIVujijFOuyXk+JvmtoVV0OctOjP67/58+gnz1Gr/0pZycln2P1bvf/FL/TPDPXn1Z3+bp78c57rvPwy2hcn1nxbqtsSec7IuKX9hawsnzciMh/niBNrvijVbQmZP/I9h8wb4k+7Ka2RZ0bZOfTfPqLfmj2ZNSdMjLLIGP15z2vb1+Bv//fHtH+LxPWYdfZSuyY7h/3bkOelsatUJ76vc03ybSz7N8+PtaYb2r7ONZ1vOWPwd4z2da6Nbf1Xe+bpUcpfaxxo1V+k5LB0/nkMWvQX+1bf+dXGea73snOnrhelfj1m9PjZYv6cGvzVgb/DiGNd3KPoMWsV2rzHPQV960by0Ad/dYgjvQ727ozghz5H+PORdbe+H5Y7yXNcBw+F8a8O/NWh/eVnKfjz6cu/Y58ptoy178hhH7JL9Bb/P3fIfZLM0Xjs7tE3KfJ7urXzLv25c3C1Rz3rXB5//jk158oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4+MbYRkmoA==
   </data>
  </layer>
  <layer name="Fog" width="80" height="80">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20Hb6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA1wBkAAAB
+   eJztzjEBAAAIA6DZv7QV9ukBCUjgp7kOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFBbFZAAC
   </data>
  </layer>
  <objectgroup name="Spawns" width="80" height="80" opacity="0.8">
-  <object name="Player Spawn" x="152" y="120" width="15" height="20">
+  <object name="Player Spawn" x="20" y="6" width="15" height="20">
    <properties>
     <property name="playerspawn" value=""/>
    </properties>
   </object>
-  <object name="Enemy Spawn 1" x="180" y="83" width="13" height="11">
+  <object name="Enemy Spawn 1" x="213" y="48" width="13" height="11">
+   <properties>
+    <property name="angle" value="90"/>
+    <property name="rlstatic" value="2"/>
+   </properties>
+  </object>
+  <object name="Enemy Spawn 2" x="199" y="127" width="13" height="11">
    <properties>
     <property name="angle" value="0"/>
-    <property name="rlstatic" value="3"/>
+    <property name="rldynamic" value=""/>
+   </properties>
+  </object>
+  <object name="Terrain Object 1" x="327" y="17" width="11" height="10">
+   <properties>
+    <property name="gate" value="0"/>
+    <property name="lbox" value=""/>
+   </properties>
+  </object>
+  <object name="Terrain Object 2" x="387" y="18" width="11" height="10">
+   <properties>
+    <property name="angle" value="90"/>
+    <property name="gate" value="0"/>
+    <property name="linker" value=""/>
+   </properties>
+  </object>
+  <object name="Terrain Object 3" x="548" y="64" width="11" height="10">
+   <properties>
+    <property name="gate" value="1"/>
+    <property name="lbox" value=""/>
+   </properties>
+  </object>
+  <object name="Terrain Object 4" x="468" y="222" width="11" height="10">
+   <properties>
+    <property name="gate" value="2"/>
+    <property name="lbox" value=""/>
+   </properties>
+  </object>
+  <object name="Terrain Object 2" x="548" y="209" width="11" height="10">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="gate" value="1"/>
+    <property name="linker" value=""/>
+   </properties>
+  </object>
+  <object name="Terrain Object 2" x="388" y="303" width="11" height="10">
+   <properties>
+    <property name="angle" value="90"/>
+    <property name="gate" value="2"/>
+    <property name="linker" value=""/>
+   </properties>
+  </object>
+  <object name="Enemy Spawn 3" x="452" y="81" width="13" height="11">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="rldynamic" value=""/>
+   </properties>
+  </object>
+  <object name="Enemy Spawn 4" x="450" y="15" width="13" height="11">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="rldynamic" value=""/>
+   </properties>
+  </object>
+  <object name="Enemy Spawn 2" x="518" y="127" width="13" height="11">
+   <properties>
+    <property name="angle" value="270"/>
+    <property name="rldynamic" value=""/>
+   </properties>
+  </object>
+  <object name="Enemy Spawn 1" x="516" y="256" width="13" height="11">
+   <properties>
+    <property name="angle" value="180"/>
+    <property name="rlstatic" value="2"/>
+   </properties>
+  </object>
+  <object name="Enemy Spawn 1" x="421" y="221" width="13" height="11">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="rlstatic" value="2"/>
+   </properties>
+  </object>
+  <object name="Enemy Spawn 1" x="276" y="223" width="13" height="11">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="yl" value=""/>
+   </properties>
+  </object>
+  <object name="Enemy Spawn 1" x="22" y="302" width="13" height="11">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="rlstatic" value="1"/>
+   </properties>
+  </object>
+  <object name="Enemy Spawn 1" x="118" y="206" width="13" height="11">
+   <properties>
+    <property name="angle" value="90"/>
+    <property name="rlstatic" value="1"/>
+   </properties>
+  </object>
+  <object name="Enemy Spawn 1" x="116" y="95" width="13" height="11">
+   <properties>
+    <property name="angle" value="180"/>
+    <property name="rlstatic" value="1"/>
+   </properties>
+  </object>
+  <object name="Enemy Spawn 2" x="247" y="402" width="13" height="11">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="rldynamic" value=""/>
+   </properties>
+  </object>
+  <object name="Enemy Spawn 2" x="326" y="446" width="13" height="11">
+   <properties>
+    <property name="angle" value="180"/>
+    <property name="rldynamic" value=""/>
+   </properties>
+  </object>
+  <object name="Terrain Object 4" x="20" y="94" width="11" height="10">
+   <properties>
+    <property name="gate" value="3"/>
+    <property name="lbox" value=""/>
+   </properties>
+  </object>
+  <object name="Terrain Object 2" x="261" y="593" width="11" height="10">
+   <properties>
+    <property name="angle" value="90"/>
+    <property name="gate" value="4"/>
+    <property name="linker" value=""/>
+   </properties>
+  </object>
+  <object name="Terrain Object 4" x="390" y="574" width="11" height="10">
+   <properties>
+    <property name="gate" value="4"/>
+    <property name="lbox" value=""/>
+   </properties>
+  </object>
+  <object name="Enemy Spawn 1" x="294" y="511" width="13" height="11">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="yl" value=""/>
+   </properties>
+  </object>
+  <object name="Enemy Spawn 2" x="213" y="557" width="13" height="11">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="rldynamic" value=""/>
+   </properties>
+  </object>
+  <object name="Enemy Spawn 1" x="356" y="592" width="13" height="11">
+   <properties>
+    <property name="angle" value="90"/>
+    <property name="rlstatic" value="1"/>
+   </properties>
+  </object>
+  <object name="Terrain Object 2" x="214" y="593" width="11" height="10">
+   <properties>
+    <property name="angle" value="90"/>
+    <property name="gate" value="3"/>
+    <property name="linker" value=""/>
+   </properties>
+  </object>
+  <object name="Enemy Spawn 1" x="245" y="282" width="13" height="11">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="ol" value=""/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Lights" width="80" height="80"/>
+ <objectgroup name="Lights" width="80" height="80">
+  <object name="Point Light 2" x="216" y="96" width="12" height="10">
+   <properties>
+    <property name="pl" value=""/>
+    <property name="white" value=""/>
+   </properties>
+  </object>
+  <object name="Point Light 1" x="70" y="61" width="8" height="11">
+   <properties>
+    <property name="pl" value=""/>
+    <property name="white" value=""/>
+   </properties>
+  </object>
+  <object name="Point Light 3" x="356" y="82" width="12" height="10">
+   <properties>
+    <property name="pl" value=""/>
+    <property name="white" value=""/>
+   </properties>
+  </object>
+  <object name="Point Light 4" x="439" y="63" width="12" height="10">
+   <properties>
+    <property name="pl" value=""/>
+    <property name="white" value=""/>
+   </properties>
+  </object>
+  <object name="Point Light 5" x="472" y="174" width="12" height="10">
+   <properties>
+    <property name="pl" value=""/>
+    <property name="white" value=""/>
+   </properties>
+  </object>
+  <object name="Point Light 6" x="487" y="287" width="12" height="10">
+   <properties>
+    <property name="pl" value=""/>
+    <property name="white" value=""/>
+   </properties>
+  </object>
+  <object name="Point Light 6" x="197" y="241" width="12" height="10">
+   <properties>
+    <property name="pl" value=""/>
+    <property name="white" value=""/>
+   </properties>
+  </object>
+  <object name="Point Light 6" x="342" y="240" width="12" height="10">
+   <properties>
+    <property name="pl" value=""/>
+    <property name="white" value=""/>
+   </properties>
+  </object>
+  <object name="Point Light 6" x="71" y="253" width="12" height="10">
+   <properties>
+    <property name="pl" value=""/>
+    <property name="white" value=""/>
+   </properties>
+  </object>
+  <object name="Point Light 6" x="70" y="143" width="12" height="10">
+   <properties>
+    <property name="pl" value=""/>
+    <property name="white" value=""/>
+   </properties>
+  </object>
+  <object name="Point Light 6" x="262" y="433" width="12" height="10">
+   <properties>
+    <property name="pl" value=""/>
+    <property name="white" value=""/>
+   </properties>
+  </object>
+  <object name="Point Light 6" x="278" y="512" width="12" height="10">
+   <properties>
+    <property name="pl" value=""/>
+    <property name="white" value=""/>
+   </properties>
+  </object>
+  <object name="Point Light 6" x="326" y="592" width="12" height="10">
+   <properties>
+    <property name="pl" value=""/>
+    <property name="white" value=""/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Bounds" width="80" height="80">
+  <object name="Yellow Lighter Bounds" x="275" y="324" width="26" height="9"/>
+  <object name="Yellow Lighter Bounds" x="133" y="275" width="7" height="25"/>
+  <object name="Yellow Lighter Bounds" x="390" y="307" width="5" height="9"/>
+  <object name="Yellow Lighter Bounds" x="269" y="466" width="41" height="9"/>
+ </objectgroup>
 </map>

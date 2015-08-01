@@ -2,6 +2,7 @@ package com.inoculates.dal.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import com.badlogic.gdx.ApplicationListener;
 import com.inoculates.dal.WorldHandlers.DarkAndLight;
 
 public class DesktopLauncher {

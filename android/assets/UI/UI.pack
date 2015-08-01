@@ -3,17 +3,38 @@ UI.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-HealthBar
+BlackScreen
+  rotate: false
+  xy: 1, 28
+  size: 200, 150
+  orig: 200, 150
+  offset: 0, 0
+  index: -1
+GreenRectangle
   rotate: false
   xy: 1, 1
+  size: 50, 25
+  orig: 50, 25
+  offset: 0, 0
+  index: -1
+RedRectangle
+  rotate: false
+  xy: 203, 153
+  size: 50, 25
+  orig: 50, 25
+  offset: 0, 0
+  index: -1
+HealthBar
+  rotate: false
+  xy: 53, 16
   size: 60, 10
   orig: 60, 10
   offset: 0, 0
   index: -1
 Health
   rotate: false
-  xy: 63, 1
-  size: 1, 10
-  orig: 1, 10
+  xy: 53, 6
+  size: 58, 8
+  orig: 58, 8
   offset: 0, 0
   index: -1

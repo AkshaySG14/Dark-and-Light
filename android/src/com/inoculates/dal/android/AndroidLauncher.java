@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import com.inoculates.dal.DarkAndLight;
+import com.inoculates.dal.WorldHandlers.DarkAndLight;
 
 public class AndroidLauncher extends AndroidApplication {
 	@Override

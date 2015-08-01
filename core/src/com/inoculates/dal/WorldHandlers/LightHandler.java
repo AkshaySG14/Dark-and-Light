@@ -16,20 +16,22 @@ import java.util.ArrayList;
 // Created by akshaysubramaniam on 30/6/15.
 public class LightHandler {
     private GameScreen screen;
-    private World world;
     private TiledMap map;
     private TiledMapTileLayer layer;
     public RayHandler rHandler;
 
     public LightHandler(GameScreen screen, World world, TiledMap map) {
         this.screen = screen;
-        this.world = world;
         this.map = map;
 
         // Gets one layer of the map for layer purposes.
         layer = (TiledMapTileLayer) map.getLayers().get("Objects");
         // Creates the ray handler, which draws and updates all lights.
         rHandler = new RayHandler(world);
+        // Sets ambient light so that the game is barely lit.
+        rHandler.setAmbientLight(0, 0, 0, 0.1f);
+        // Creates all the point lights.
+        createLights();
     }
 
     public void createLights() {
@@ -46,13 +48,16 @@ public class LightHandler {
                 // If player spawn, creates player.
                 if (object.getProperties().containsKey("pl")) {
                     Color color = getColor(object);
-                    PointLight light = new PointLight(rHandler, 150, color, 100, x, y);
+                    PointLight light = new PointLight(rHandler, 100, color, 100, x, y);
                     light.setSoftnessLength(100);
                 }
             }
     }
 
+    // Gets the color object based on the string that the map object has.
     private Color getColor(MapObject object) {
+        if (object.getProperties().containsKey("white"))
+            return Color.LIGHT_GRAY;
         if (object.getProperties().containsKey("red"))
             return Color.RED;
         if (object.getProperties().containsKey("green"))
@@ -65,6 +70,7 @@ public class LightHandler {
     }
 
     public void light() {
+        // Renders the lights, depending on what the orthographic camera is currently viewing.
         rHandler.setCombinedMatrix(screen.camera.combined);
         rHandler.updateAndRender();
     }

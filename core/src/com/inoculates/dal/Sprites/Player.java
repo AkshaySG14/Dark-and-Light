@@ -1,35 +1,33 @@
 package com.inoculates.dal.Sprites;
 
 import box2dLight.ConeLight;
-import box2dLight.RayHandler;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.utils.Timer;
+import com.inoculates.dal.UI.HealthBar;
 import com.inoculates.dal.WorldHandlers.GameScreen;
+
+import java.awt.*;
 
 //Created by akshaysubramaniam on 25/6/15.
 
-public class Player extends Sprite {
+public class Player extends Character {
     private Body pBody;
-    private boolean stun = false, lighting = false;
-    private GameScreen screen;
-    private World world;
+    private int health = 58, healthCounter = 0;
     private TextureAtlas playerAtlas;
-    private PlayerHead head;
-    private ConeLight fLight;
+    private HealthBar bar;
+    private boolean frozen = false;
 
     // Initializes the body of the player.
-    public Player(GameScreen screen, World world, float x, float y, TextureAtlas atlas) {
-        this.screen = screen;
-        this.world = world;
+    public Player(GameScreen screen, World world, TextureAtlas atlas, float x, float y) {
+        super(screen, world);
         this.playerAtlas = atlas;
+        createUI();
         // Creates the definition for the body of the player, and sets it to dynamic.
         BodyDef pDef = new BodyDef();
         pDef.type = BodyDef.BodyType.DynamicBody;
@@ -58,9 +56,10 @@ public class Player extends Sprite {
         // Sets the frame of the sprite to the player frame.
         setRegion(playerAtlas.findRegion("Player1"));
         // Sets sizing of the sprite.
-        setSize(16, 16);
+        setSize(getRegionWidth(), getRegionHeight());
         // Sets the position of the sprite to the given x and y position.
         pBody.setTransform(x, y, 0);
+        pBody.setUserData(this);
 
         // Creates the player head.
         head = new PlayerHead(screen, this, atlas);
@@ -72,6 +71,9 @@ public class Player extends Sprite {
     }
 
     public void draw(SpriteBatch batch) {
+        // If dead, returns to prevent any interaction with the player character.
+        if (frozen)
+            return;
         // Updates movement of the player.
         update();
         // Sets sprite around the physical body position.
@@ -87,16 +89,17 @@ public class Player extends Sprite {
             fLight.setDirection(head.getRotation() + 90);
             fLight.setPosition(head.getX() + head.getWidth() / 2, head.getY() + head.getHeight() / 2);
         }
+        // Regenerates health, if able to.
+        regenHealth();
     }
 
     private void update() {
         tryMove();
+        checkBoxLight();
     }
 
     private void tryMove() {
-        if (stun)
-            return;
-
+        // Sets the player's linear velocity depending on the input of the player.
         if (Gdx.input.isKeyPressed(Input.Keys.W) && !Gdx.input.isKeyPressed(Input.Keys.S))
             pBody.setLinearVelocity(pBody.getLinearVelocity().x, 50);
         if (Gdx.input.isKeyPressed(Input.Keys.S) && !Gdx.input.isKeyPressed(Input.Keys.W))
@@ -125,19 +128,89 @@ public class Player extends Sprite {
             setRegion(playerAtlas.findRegion("Player1"));
             pBody.setAngularVelocity(0);
         }
+
+        // If the player is in the green end square, the player wins the game.
+        if (isCellEnd(getBX(), getBY()))
+            screen.winScreen();
     }
 
-    // Switches on/off the light and the color of the player head correspondingly.
-    public void switchLight() {
-        // Resets the position of the flashlight so it draws at the correct position immediately.
-        fLight.setDirection(head.getRotation() + 90);
-        fLight.setPosition(head.getX() + head.getWidth() / 2, head.getY() + head.getHeight() / 2);
+    // Regenerates health of the player if no damage was taken for five seconds.
+    private void regenHealth() {
+        // If under a light, does not allow regeneration.
+        if (lit || health == 58)
+            return;
 
-        // Switches on/off the flashlight.
-        lighting = !lighting;
-        // Changes the color of the head.
-        head.changeColor(lighting);
-        // Sets the light to active, so that it is rendered.
-        fLight.setActive(lighting);
+        // Increases health.
+        health++;
+        bar.updateHealth(health);
+    }
+
+    // Reduces the health of the player and updates the UI accordingly.
+    public void loseHealth() {
+        // Health is zero, no need to calculate anything.
+        if (health == 0)
+            return;
+
+        // This counter is here to ensure that the player's health does not go down too fast. It takes ten calls of
+        // this method to effect any change in health.
+        healthCounter ++;
+
+        if (healthCounter > 2) {
+            // Informs the program that the player should not be regenerating, removes HP, updates the UI, and resets
+            // the player counter.
+            lit = true;
+            health --;
+            bar.updateHealth(health);
+            healthCounter = 0;
+
+            // If after three seconds the player's health has not been reduced, allows the player to regenerate again.
+            final int oldHealth = health;
+            Timer timer = new Timer();
+            timer.scheduleTask(new Timer.Task() {
+                @Override
+                public void run() {
+                    checkUnlit(oldHealth);
+                }
+            }, 5);
+            timer.start();
+        }
+
+        if (health == 0)
+            die();
+    }
+
+    // Fills in the box if it is within the player's flashlight.
+    private void checkBoxLight() {
+        for (TerrainObject tObject : screen.tObjects)
+            if (tObject instanceof LightBox) {
+                LightBox box = (LightBox) tObject;
+                if (checkLightCollision(box.getX() + box.getWidth() / 2, box.getY() + box.getHeight() / 2))
+                    box.colorIn();
+            }
+    }
+
+    private void checkUnlit(final int oldHealth) {
+        lit = health != oldHealth;
+    }
+
+    private void createUI() {
+        // Creates the UI of the game.
+        bar = new HealthBar(screen, world, screen.spriteAtlases.get(1), 5, 135);
+        screen.UIs.add(bar);
+    }
+
+    // Brings up the lose screen.
+    private void die() {
+        screen.loseScreen();
+        frozen = true;
+    }
+
+    //Gets the body position's x and y.
+    public float getBX() {
+        return pBody.getPosition().x;
+    }
+
+    public float getBY() {
+        return pBody.getPosition().y;
     }
 }

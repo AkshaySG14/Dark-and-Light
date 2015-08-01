@@ -12,13 +12,13 @@ import com.inoculates.dal.WorldHandlers.GameScreen;
 public abstract class UI extends Sprite {
     protected GameScreen screen;
     protected World world;
-    protected TextureAtlas enemyAtlas;
+    protected TextureAtlas UIAtlas;
     protected float xPos, yPos;
 
     public UI(GameScreen screen, World world, TextureAtlas atlas, float x, float y) {
         this.screen = screen;
         this.world = world;
-        this.enemyAtlas = atlas;
+        this.UIAtlas = atlas;
         xPos = x;
         yPos = y;
     }
@@ -26,8 +26,7 @@ public abstract class UI extends Sprite {
     public void draw(SpriteBatch batch) {
         // Continually sets the position of the UI element to the offset in the camera. This ensures that the UI
         // element is always in view of the player.
-        setPosition(screen.camera.position.x - screen.camera.viewportWidth / 2 + xPos, screen.camera.position.y -
-        screen.camera.viewportHeight / 2 + yPos);
+        update();
         super.draw(batch);
     }
 

@@ -3,66 +3,136 @@ Sprites.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-block
+LightBox
   rotate: false
   xy: 1, 15
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-Player1
+LightHolder
   rotate: false
   xy: 19, 15
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-Player2
+OrangeLighter1
   rotate: false
   xy: 37, 15
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-RedLighter1
+OrangeLighter2
   rotate: false
   xy: 55, 15
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-RedLighter2
+Player1
   rotate: false
   xy: 73, 15
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
+Player2
+  rotate: false
+  xy: 91, 15
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+RedLighter1
+  rotate: false
+  xy: 109, 15
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+RedLighter2
+  rotate: false
+  xy: 127, 15
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+YellowLighter1
+  rotate: false
+  xy: 145, 15
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+YellowLighter2
+  rotate: false
+  xy: 163, 15
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Gate
+  rotate: false
+  xy: 1, 9
+  size: 16, 4
+  orig: 16, 4
+  offset: 0, 0
+  index: -1
+OrangeLighterHead1
+  rotate: false
+  xy: 1, 1
+  size: 6, 6
+  orig: 6, 6
+  offset: 0, 0
+  index: -1
+OrangeLighterHead2
+  rotate: false
+  xy: 9, 1
+  size: 6, 6
+  orig: 6, 6
+  offset: 0, 0
+  index: -1
 PlayerHead1
   rotate: false
-  xy: 91, 17
-  size: 16, 14
-  orig: 16, 14
+  xy: 17, 1
+  size: 6, 6
+  orig: 6, 6
   offset: 0, 0
   index: -1
 PlayerHead2
   rotate: false
-  xy: 91, 1
-  size: 16, 14
-  orig: 16, 14
+  xy: 181, 25
+  size: 6, 6
+  orig: 6, 6
   offset: 0, 0
   index: -1
 RedLighterHead1
   rotate: false
-  xy: 109, 17
-  size: 16, 14
-  orig: 16, 14
+  xy: 181, 17
+  size: 6, 6
+  orig: 6, 6
   offset: 0, 0
   index: -1
 RedLighterHead2
   rotate: false
-  xy: 109, 1
-  size: 16, 14
-  orig: 16, 14
+  xy: 189, 25
+  size: 6, 6
+  orig: 6, 6
+  offset: 0, 0
+  index: -1
+YellowLighterHead1
+  rotate: false
+  xy: 189, 17
+  size: 6, 6
+  orig: 6, 6
+  offset: 0, 0
+  index: -1
+YellowLighterHead2
+  rotate: false
+  xy: 197, 25
+  size: 6, 6
+  orig: 6, 6
   offset: 0, 0
   index: -1

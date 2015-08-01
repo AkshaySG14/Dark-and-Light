@@ -13,11 +13,9 @@ public class RedLighterStatic extends RedLighter {
 
     public RedLighterStatic(GameScreen screen, World world, float x, float y, TextureAtlas atlas, int direction, float
                             startingAngle) {
-        super(screen, world, x, y, atlas);
+        super(screen, world, atlas, x, y);
         this.direction = direction;
         startDirection(startingAngle);
-        // Switches light on.
-        switchLight();
     }
 
     // Sets the starting direction.
