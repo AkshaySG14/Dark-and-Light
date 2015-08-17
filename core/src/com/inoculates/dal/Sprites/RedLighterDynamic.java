@@ -9,11 +9,15 @@ import com.inoculates.dal.WorldHandlers.GameScreen;
 // Created by akshaysubramaniam on 4/7/15.
 public class RedLighterDynamic extends RedLighter {
     private float moveTime = 0;
+    private float spawnX, spawnY;
 
     public RedLighterDynamic(GameScreen screen, World world, float x, float y, TextureAtlas atlas, float
             startingAngle) {
         super(screen, world, atlas, x, y);
         startDirection(startingAngle);
+        // Sets the spawn point so that if the red lighter strays too far from it, it will turn around.
+        spawnX = x;
+        spawnY = y;
     }
 
     // Sets the starting direction.
@@ -27,9 +31,11 @@ public class RedLighterDynamic extends RedLighter {
                 (float) (Math.sin(angle * MathUtils.degreesToRadians) * 25));
     }
 
-    // Changes the velocity of the Red Lighter to the opposite direction every 2.5 seconds.
+    // Changes the velocity of the Red Lighter to the opposite direction if it strays too far from the spawn point. Note
+    // that the move time is used so that the Red Lighter has time to turn around and head backwards before the check is
+    // cast again. This is to prevent infinite looping.
     protected void tryMove() {
-        if (moveTime > 2.5f) {
+        if (getDistance(getBX(), getBY(), spawnX, spawnY) > 30 && moveTime > 0.5f) {
             changeDirection();
             moveTime = 0;
         }
