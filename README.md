@@ -13,5 +13,3 @@ and geometry. Despite this, the game only requries an elementary understanding o
 not terribly difficult to comprehend. 
 
 The basic controls of the game are as follows: WASD keys for movement and a mouse for rotating the flashlight and turning it on/off.
-
-NOTE: Resizing the screen causes a bug in pathing. Therefore, to fully experience the game, refrain from resizing the screen.
