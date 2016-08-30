@@ -13,3 +13,7 @@ and geometry. Despite this, the game only requries an elementary understanding o
 not terribly difficult to comprehend. 
 
 The basic controls of the game are as follows: WASD keys for movement and a mouse for rotating the flashlight and turning it on/off.
+
+Credits: Thanks to Codeman38 for the font used in the game.
+
+MADE BY AKSHAY SUBRAMANIAM
